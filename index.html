@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dagy Travel & Events — Connecting Journeys, Creating Experiences</title>
+  <meta name="description" content="Air ticketing, tourism packages, and MICE (Meetings, Incentives, Conferences, Events) services by Dagy Travel & Events." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --sky:#1fa1f1;          /* Sky blue (trust & travel) */
+      --gold:#c9a227;         /* Gold (luxury & events) */
+      --ink:#0c1b2a;          /* Deep ink for text */
+      --muted:#6b7a8c;        /* Muted text */
+      --bg:#ffffff;           /* White background */
+      --bg-soft:#f7fbff;      /* Soft tinted white */
+      --card:#ffffff;         /* Card bg */
+      --ring: rgba(31,161,241,.35);
+      --shadow: 0 10px 25px rgba(12,27,42,.08);
+      --radius: 18px;
+      --radius-lg: 28px;
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif; color:var(--ink); background:var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    /* Header */
+    .topbar{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(6px); background:rgba(255,255,255,.7); border-bottom:1px solid rgba(12,27,42,.06)}
+    .nav{max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px}
+    .brand .logo{width:40px; height:40px; border-radius:50%; background:conic-gradient(from 220deg,var(--gold),#ffd766,var(--sky)); display:grid; place-items:center; box-shadow:0 6px 16px rgba(0,0,0,.08)}
+    .brand .logo svg{width:22px;height:22px; fill:#fff}
+    .brand span{font-weight:700}
+    .navlinks{display:flex; gap:18px; align-items:center}
+    .navlinks a{font-weight:500; opacity:.85}
+    .navlinks a:hover{opacity:1}
+    .cta{display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:999px; background:linear-gradient(135deg,var(--sky),#64c8ff); color:#fff; font-weight:600; box-shadow:0 8px 22px rgba(31,161,241,.3)}
+    .cta svg{width:18px;height:18px; fill:#fff}
+    .menu-btn{display:none; border:0; background:transparent}
+
+    /* Hero */
+    .hero{position:relative; overflow:hidden; background:linear-gradient(180deg,#eaf6ff,transparent);}
+    .hero-wrap{max-width:var(--maxw); margin:0 auto; padding:72px 20px 42px; display:grid; grid-template-columns:1.05fr .95fr; gap:32px; align-items:center}
+    .kicker{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:#f2f7ff; color:#1269a6; font-weight:600; font-size:12px; border:1px solid rgba(31,161,241,.25)}
+    h1{font-size:clamp(32px,4.2vw,54px); line-height:1.06; margin:12px 0 10px}
+    .lead{font-size:clamp(16px,1.6vw,18px); color:var(--muted); max-width:52ch}
+    .hero-cta{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; border:1px solid rgba(12,27,42,.1); background:#fff; font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,var(--gold),#f4d26e); color:#1f2430; border:0; box-shadow:0 10px 26px rgba(201,162,39,.26)}
+    .hero-card{background:var(--card); padding:18px; border-radius:var(--radius-lg); box-shadow:var(--shadow); border:1px solid rgba(12,27,42,.06)}
+    .badge-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .badge{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--bg-soft); border:1px solid rgba(12,27,42,.06)}
+
+    /* Sections */
+    section{padding:70px 20px}
+    .container{max-width:var(--maxw); margin:0 auto}
+    .section-head{display:flex; align-items:end; justify-content:space-between; margin-bottom:24px; gap:18px}
+    .section-head h2{font-size:clamp(26px,3vw,36px); margin:0}
+    .section-head p{color:var(--muted); max-width:68ch}
+
+    /* Cards */
+    .grid{display:grid; gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); border:1px solid rgba(12,27,42,.06)}
+    .card h3{margin:0 0 6px}
+    .card p{color:var(--muted)}
+
+    /* Feature icons */
+    .icon{width:28px;height:28px; flex:0 0 28px}
+    .row{display:flex; gap:12px; align-items:flex-start}
+
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:10px}
+    .gallery img{border-radius:14px; cursor:pointer; box-shadow:0 10px 20px rgba(0,0,0,.06)}
+    .gallery .span-6{grid-column:span 6}
+    .gallery .span-3{grid-column:span 3}
+    .gallery .span-4{grid-column:span 4}
+
+    /* Testimonials */
+    .testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .quote{background:var(--card); border:1px solid rgba(12,27,42,.06); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .quote p{margin:0; color:var(--muted)}
+    .quote .who{display:flex; align-items:center; gap:10px; margin-top:12px; font-weight:600}
+
+    /* Forms */
+    form{display:grid; gap:12px}
+    input, select, textarea{padding:12px 14px; border-radius:12px; border:1px solid rgba(12,27,42,.12); outline:0; font-family:inherit; font-size:14px; background:#fff}
+    input:focus, select:focus, textarea:focus{box-shadow:0 0 0 4px var(--ring); border-color:var(--sky)}
+    label{font-weight:600; font-size:13px}
+    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .note{font-size:12px; color:var(--muted)}
+
+    /* Footer */
+    footer{background:#0b1420; color:#cfd9e6}
+    .foot{max-width:var(--maxw); margin:0 auto; padding:40px 20px; display:grid; grid-template-columns:2fr 1fr 1fr 1.2fr; gap:20px}
+    .foot a{color:#cfd9e6; opacity:.9}
+    .foot small{color:#9eb1c7}
+    .subfoot{border-top:1px solid rgba(255,255,255,.1); padding:14px 20px; color:#9eb1c7; text-align:center}
+
+    /* Utilities */
+    .pill{display:inline-block; padding:8px 12px; background:linear-gradient(135deg,#fef8e1,#fff6cc); border:1px solid #f4e19f; border-radius:999px; font-weight:600; color:#6a5600}
+    .highlight{color:var(--sky); font-weight:700}
+    .gold{color:var(--gold)}
+    .center{text-align:center}
+    .mt-20{margin-top:20px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-wrap{grid-template-columns:1fr; padding-top:54px}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .foot{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .menu-btn{display:inline-flex}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="topbar">
+    <nav class="nav">
+      <a class="brand" href="#home" aria-label="Dagy Travel & Events home">
+        <span class="logo" aria-hidden="true">
+          <!-- Airplane + spark (inline SVG) -->
+          <svg viewBox="0 0 24 24" role="img" aria-label="logo icon"><path d="M21.5 3.5c.7.7.7 1.8 0 2.5l-6.1 6.1 1 5.2c.1.7-.7 1.3-1.3.9l-3.8-2.5-2.5 2.5c-.3.3-.7.3-1 0l-1.1-1.1c-.3-.3-.3-.7 0-1l2.5-2.5-2.5-3.8c-.4-.6.2-1.4.9-1.3l5.2 1 6.1-6.1c.7-.7 1.8-.7 2.5 0z"/></svg>
+        </span>
+        <span>Dagy Travel & Events</span>
+      </a>
+      <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+      </button>
+      <div class="navlinks" id="navlinks">
+        <a href="#about">About</a>
+        <a href="#air">Air Tickets</a>
+        <a href="#tourism">Tourism</a>
+        <a href="#mice">MICE / Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="https://wa.me/250700000000?text=Hello%20Dagy%2C%20I%27d%20like%20to%20book" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.5 3.5A10 10 0 004 18.2L3 21l2.9-.8A10 10 0 1020.5 3.5zm-8.3 3c-3.2 0-5.7 2.6-5.7 5.7 0 1 .3 2 .8 2.9l-.9 3.2 3-1c.9.6 1.9.9 3 .9 3.2 0 5.7-2.6 5.7-5.7 0-3.2-2.5-6-5.9-6zm3.3 8.3c-.1.2-.8.7-1.6.8-.4 0-.8 0-1.8-.4-1-.4-1.7-.9-2.4-1.7-.5-.6-1.1-1.4-1.3-2.2-.1-.6 0-1.1.2-1.4.2-.3.4-.4.6-.5h.4c.1 0 .3 0 .4.3.1.3.5 1.1.5 1.2.1.1.1.2 0 .4l-.3.5c-.1.1-.2.2-.1.4.2.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.1.2 0 .3 0 .4-.2l.6-.8c.1-.2.3-.2.4-.1l1.1.5c.2.1.4.2.4.3.1.1.1.3.1.4z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <header id="home" class="hero">
+    <div class="hero-wrap">
+      <div>
+        <span class="kicker">Connecting Journeys, Creating Experiences</span>
+        <h1>Elegant travel & event solutions for <span class="highlight">air tickets</span>, <span class="highlight">tourism</span> and <span class="highlight">MICE</span>.</h1>
+        <p class="lead">Dagy Travel & Events helps business travelers, tourists, and organizations plan seamless trips, conferences, and luxury experiences across Rwanda and beyond.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#booking">Request a Booking</a>
+          <a class="btn" href="#contact">Talk to Us</a>
+        </div>
+        <div class="badge-row">
+          <span class="badge">Airline Partnerships</span>
+          <span class="badge">Curated Cultural Tours</span>
+          <span class="badge">Corporate Events & Incentives</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1200&auto=format&fit=crop" alt="Aircraft wing above clouds" />
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About Dagy</h2>
+        <p>We combine hospitality, precision, and creativity to deliver exceptional journeys. Our mission is to make travel effortless and events memorable—every time.</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="row">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l9 4-9 4-9-4 9-4zm0 8l9 4-9 4-9-4 9-4zm0 8l9 4-9 4-9-4 9-4z"/></svg>
+            <div>
+              <h3>Our Story</h3>
+              <p>Born from a passion for discovery and service excellence, Dagy Travel & Events curates tailored itineraries and flawless corporate experiences.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 21l-8-6V7l8-6 8 6v8l-8 6zm-3-9h6v2H9v-2z"/></svg>
+            <div>
+              <h3>Vision & Mission</h3>
+              <p><span class="gold">Vision:</span> Be the trusted gateway to Africa’s finest journeys and events. <br><span class="gold">Mission:</span> Deliver reliable ticketing, immersive tours, and impactful MICE solutions.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5h-2v6l5 3 .9-1.5-3.9-2.3V7z"/></svg>
+            <div>
+              <h3>Why Choose Us</h3>
+              <p>Fast support, preferred rates, curated partners, and a single point of contact—from flights to venues to on‑site coordination.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Air Tickets -->
+  <section id="air" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="section-head">
+        <h2>Air Ticketing</h2>
+        <p>We assist with flight searches, fare comparisons, booking management, and special requests for business and leisure travelers.</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Flight Support</h3>
+          <p>Quotes across multiple airlines, baggage guidance, and visa information for common routes.</p>
+        </div>
+        <div class="card">
+          <h3>Corporate Accounts</h3>
+          <p>Centralized billing, travel policies, and traveler profiles for streamlined approvals.</p>
+        </div>
+        <div class="card">
+          <h3>After‑Sales</h3>
+          <p>Changes, cancellations, refunds, and 24/7 assistance for urgent cases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tourism -->
+  <section id="tourism">
+    <div class="container">
+      <div class="section-head">
+        <h2>Tourism Packages</h2>
+        <p>From gorilla trekking to cultural immersions, we design flexible itineraries with vetted local partners.</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Safaris & Nature</h3>
+          <p>Akagera safaris, Nyungwe canopy walk, Volcanoes National Park day trips.</p>
+        </div>
+        <div class="card">
+          <h3>Cultural & City</h3>
+          <p>Kigali city tours, art & fashion, coffee experiences, historical landmarks.</p>
+        </div>
+        <div class="card">
+          <h3>Getaways</h3>
+          <p>Lake Kivu retreats, luxury lodges, and bespoke weekend escapes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MICE / Events -->
+  <section id="mice" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="section-head">
+        <h2>MICE / Events</h2>
+        <p>Planning and production for incentives, conferences, exhibitions, and corporate functions.</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Venue & Logistics</h3>
+          <p>Venue sourcing, AV & staging, travel coordination, VIP handling.</p>
+        </div>
+        <div class="card">
+          <h3>Programs & Content</h3>
+          <p>Agenda design, speaker management, branding, and delegate experiences.</p>
+        </div>
+        <div class="card">
+          <h3>On‑site Management</h3>
+          <p>Registration teams, protocol, hospitality desks, and field coordination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery / Testimonials -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <h2>Gallery & Testimonials</h2>
+        <p>Preview destinations and event moments. Real images will replace stock as Dagy shares her portfolio.</p>
+      </div>
+      <div class="gallery">
+        <img class="span-6" src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?q=80&w=1400&auto=format&fit=crop" alt="Conference setup" onclick="openLightbox(this.src)">
+        <img class="span-3" src="https://images.unsplash.com/photo-1505764706515-aa95265c5abc?q=80&w=900&auto=format&fit=crop" alt="Luxury event" onclick="openLightbox(this.src)">
+        <img class="span-3" src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=900&auto=format&fit=crop" alt="Airplane window" onclick="openLightbox(this.src)">
+        <img class="span-4" src="https://images.unsplash.com/photo-1544989164-31dc3c645987?q=80&w=1000&auto=format&fit=crop" alt="Safari" onclick="openLightbox(this.src)">
+        <img class="span-4" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1000&auto=format&fit=crop" alt="Conference audience" onclick="openLightbox(this.src)">
+        <img class="span-4" src="https://images.unsplash.com/photo-1532634896-26909d0d4b6a?q=80&w=1000&auto=format&fit=crop" alt="Cultural show" onclick="openLightbox(this.src)">
+      </div>
+
+      <div class="testimonials mt-20">
+        <div class="quote">
+          <p>“Flawless ticketing and a smooth conference week. We’ll be back next quarter.”</p>
+          <div class="who">
+            <img src="https://i.pravatar.cc/44?img=12" alt="Client avatar" style="border-radius:50%"> <span>Corporate Client, Kigali</span>
+          </div>
+        </div>
+        <div class="quote">
+          <p>“Our team loved the Lake Kivu retreat—great value and incredible service.”</p>
+          <div class="who">
+            <img src="https://i.pravatar.cc/44?img=22" alt="Client avatar" style="border-radius:50%"> <span>HR Lead, Regional NGO</span>
+          </div>
+        </div>
+        <div class="quote">
+          <p>“Professional, responsive, and creative from planning to execution.”</p>
+          <div class="who">
+            <img src="https://i.pravatar.cc/44?img=32" alt="Client avatar" style="border-radius:50%"> <span>Events Partner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Request -->
+  <section id="booking" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="section-head">
+        <h2>Booking Request</h2>
+        <p>Tell us about your trip or event. We’ll respond with options and a tailored quote.</p>
+      </div>
+      <form name="booking" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="booking">
+        <div class="form-row">
+          <div>
+            <label for="bname">Full Name</label>
+            <input id="bname" name="name" required placeholder="Your name" />
+          </div>
+          <div>
+            <label for="bemail">Email</label>
+            <input id="bemail" type="email" name="email" required placeholder="you@example.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="bphone">Phone / WhatsApp</label>
+            <input id="bphone" name="phone" placeholder="+250 7xx xxx xxx" />
+          </div>
+          <div>
+            <label for="btype">Service Type</label>
+            <select id="btype" name="service" required>
+              <option value="Air Tickets">Air Tickets</option>
+              <option value="Tourism">Tourism</option>
+              <option value="MICE / Events">MICE / Events</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="bfrom">From</label>
+            <input id="bfrom" name="from" placeholder="City / Airport / Venue" />
+          </div>
+          <div>
+            <label for="bto">To</label>
+            <input id="bto" name="to" placeholder="City / Airport / Venue" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="bdate">Dates</label>
+            <input id="bdate" name="dates" placeholder="e.g., 12–16 Sept 2025" />
+          </div>
+          <div>
+            <label for="bpax">Travellers / Delegates</label>
+            <input id="bpax" name="pax" placeholder="e.g., 1 adult, 1 child / 150 delegates" />
+          </div>
+        </div>
+        <div>
+          <label for="bnotes">Notes</label>
+          <textarea id="bnotes" name="notes" rows="4" placeholder="Preferences, budget range, special requests…"></textarea>
+        </div>
+        <button class="btn primary" type="submit">Submit Request</button>
+        <p class="note">This form is Netlify-ready. On GitHub Pages you can connect to Formspree, Basin, or your preferred backend.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact Us</h2>
+        <p>We’d love to help you plan your next journey or event. Reach us via form, phone, or WhatsApp.</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact">
+            <div class="form-row">
+              <div>
+                <label for="name">Full Name</label>
+                <input id="name" name="name" required placeholder="Your name" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" required placeholder="you@example.com" />
+              </div>
+            </div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="How can we help?"></textarea>
+            <button class="btn primary" type="submit">Send Message</button>
+            <p class="note">Prefer WhatsApp? <a class="highlight" href="https://wa.me/250700000000?text=Hello%20Dagy%2C%20I%27d%20like%20to%20chat" target="_blank" rel="noopener">Tap here</a>.</p>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Visit & Connect</h3>
+          <p><strong>Phone:</strong> +250 700 000 000<br>
+             <strong>Email:</strong> hello@dagytravel.com<br>
+             <strong>Hours:</strong> Mon–Fri, 9:00–18:00 (CAT)
+          </p>
+          <div style="border-radius:14px; overflow:hidden; box-shadow:var(--shadow); border:1px solid rgba(12,27,42,.06)">
+            <iframe title="Kigali map" src="https://www.google.com/maps?q=Kigali%20Convention%20Centre&output=embed" width="100%" height="260" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <form name="newsletter" method="POST" data-netlify="true" class="mt-20">
+            <input type="hidden" name="form-name" value="newsletter">
+            <label for="nl">Subscribe to updates</label>
+            <div class="form-row" style="grid-template-columns:2fr .8fr">
+              <input id="nl" name="email" type="email" required placeholder="Your email" />
+              <button class="btn" type="submit">Sign Up</button>
+            </div>
+            <p class="note">We send only occasional travel deals and event news.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="foot">
+      <div>
+        <div class="brand">
+          <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.5 3.5c.7.7.7 1.8 0 2.5l-6.1 6.1 1 5.2c.1.7-.7 1.3-1.3.9l-3.8-2.5-2.5 2.5c-.3.3-.7.3-1 0l-1.1-1.1c-.3-.3-.3-.7 0-1l2.5-2.5-2.5-3.8c-.4-.6.2-1.4.9-1.3l5.2 1 6.1-6.1c.7-.7 1.8-.7 2.5 0z"/></svg></span>
+          <span>Dagy Travel & Events</span>
+        </div>
+        <p style="max-width:50ch">Luxury yet simple. Reliable yet creative. Your trusted partner for flights, tours, and corporate events.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#air">Air Ticketing</a><br>
+        <a href="#tourism">Tourism</a><br>
+        <a href="#mice">MICE / Events</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about">About Us</a><br>
+        <a href="#gallery">Gallery</a><br>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p>
+          <a href="#" aria-label="Instagram">Instagram</a> ·
+          <a href="#" aria-label="Facebook">Facebook</a> ·
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </p>
+        <small>© <span id="year"></span> Dagy Travel & Events. All rights reserved.</small>
+      </div>
+    </div>
+    <div class="subfoot">Designed with <span class="gold">care</span> • 
+      Inspired by Emirates (luxury), Visit Rwanda (culture), Eventbrite (clarity)
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); place-items:center; z-index:60" onclick="closeLightbox(event)">
+    <img id="lightbox-img" src="" alt="Expanded image" style="max-width:min(92vw,1200px); max-height:86vh; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.5)">
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu(){
+      const links = document.getElementById('navlinks');
+      if(links.style.display==='flex'){ links.style.display='none'; }
+      else { links.style.display='flex'; links.style.flexDirection='column'; links.style.gap='12px'; }
+    }
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Lightbox
+    function openLightbox(src){
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'grid';
+    }
+    function closeLightbox(e){ if(e.target.id==='lightbox'){ e.currentTarget.style.display='none'; } }
+  </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
